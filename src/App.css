@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  background: #000000;
 }
 
 .App-logo {
@@ -32,7 +38,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.map-container {
+  margin: 20px;
+  height: 100%;
+  border-radius: 20px;
 }
