@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #000000;
 }
 
 .App-logo {
@@ -38,8 +39,8 @@
   }
 }
 
-.mapboxgl-ctrl.mapboxgl-ctrl-attrib{
-  margin:0px 10px 10px 0px !important;
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  margin: 0px 10px 10px 0px !important;
   border-radius: 5px;
 }
 
@@ -49,7 +50,6 @@
   width: 100%;
   height: 100vh;
   flex-direction: column;
-  background: #000000;
   overflow-y: auto;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .mapbox-toolbar {
-  z-index: 99999;
+  z-index: 50;
   position: absolute;
   bottom: 136px;
   right: 10px;
@@ -88,7 +88,7 @@
   background-color: #f4f4f4;
 }
 
-.custom-progress-spinner{
+.custom-progress-spinner {
   position: absolute;
   display: flex;
   align-items: center;
@@ -96,4 +96,13 @@
   width: 100%;
   height: 100%;
   z-index: 12000;
+}
+
+.custom-dialog .MuiDialog-paper,canvas {
+  border-radius: 20px;
+  background: #efe1e1;
+}
+.mapbox-toolbar-button-print-icon{
+  min-width: 25px;
+  min-height: 15px;
 }

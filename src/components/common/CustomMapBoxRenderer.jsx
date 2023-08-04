@@ -63,7 +63,7 @@ export default function CustomMapBoxRenderer({ renderImage }) {
 
         return (
             <div className="mapbox-toolbar">
-                <button className="mapbox-toolbar-button" onClick={handleClickPrint}> <PrintIcon /></button>
+                <button className="mapbox-toolbar-button" onClick={handleClickPrint}> <PrintIcon className='mapbox-toolbar-button-print-icon' /></button>
             </div>
         )
     }

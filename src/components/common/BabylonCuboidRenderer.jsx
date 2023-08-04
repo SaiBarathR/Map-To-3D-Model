@@ -20,11 +20,11 @@ export default function BabylonCuboidRenderer({ imageSource, refreshImgSrc }) {
             <Engine antialias adaptToDeviceRatio canvasId="babylonJS">
                 <Scene>
                     <arcRotateCamera
-                        name="camera1"
+                        name="mapCamera"
                         target={Vector3.Zero()}
                         alpha={(3 * Math.PI) / 4}
                         beta={Math.PI / 4}
-                        radius={2}
+                        radius={2}                        
                     />
                     <hemisphericLight
                         name="light1"

@@ -26,7 +26,7 @@ export function SpinningBox(props) {
             faceUV={faceUV}
             wrap
         >
-            <standardMaterial>
+            <standardMaterial name={props.name}>
                 <texture url={props.imageSource} assignTo={"diffuseTexture"} />
             </standardMaterial>
         </box>
