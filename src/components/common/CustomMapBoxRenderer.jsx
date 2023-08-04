@@ -48,12 +48,17 @@ export default function CustomMapBoxRenderer({ renderImage }) {
     //Top right toolbar
     function CustomMapBoxToolbar() {
 
-        const handleClickPrint = () => {
+        const handleClickPrint = () => {            
             const coordinates = [lng, lat]
-            //mapbox api to get static image of map with selected coordinates and zoom level
-            const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/400x400?access_token=${mapboxgl.accessToken}`;
-            //returning image url to parent component to create a model
-            renderImage(imageUrl)
+            try {
+                //mapbox api to get static image of map with selected coordinates and zoom level
+                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/400x400?access_token=${mapboxgl.accessToken}`;
+                //returning image url to parent component to create a model
+                renderImage(imageUrl)
+            } catch (error) {
+                console.log(error)
+                renderImage('');
+            }
         }
 
         return (
