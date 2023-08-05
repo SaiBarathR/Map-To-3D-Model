@@ -3,16 +3,10 @@ import { Vector3 } from "@babylonjs/core";
 import { SpinningBox } from "./SpinningBox";
 import { useState } from "react";
 import CustomDialog from "./CustomDialog";
-import CustomSpinnerLoader from './CustomSpinnerLoader';
 
-export default function BabylonCuboidRenderer({ imageSource, refreshImgSrc }) {
+export default function BabylonCuboidRenderer({ imageSource, refreshImgSrc, handleLoading }) {
     //state to control dialog open/close
-    const [isImageRenderDialogOpen, setIsImageRenderDialogOpen] = useState(true);
-    const [loading, setLoading] = useState(true);
-
-    const handleLoading = (isLoading) => {
-        setLoading(isLoading);
-    }
+    const [isImageRenderDialogOpen, setIsImageRenderDialogOpen] = useState(true);  
 
     //callback function to close dialog and reset image source
     const handleDialogClose = () => {
@@ -23,7 +17,6 @@ export default function BabylonCuboidRenderer({ imageSource, refreshImgSrc }) {
     //return babylon engine with scene and camera setup to render image as 3D cuboid
     return (
         <CustomDialog title={'Image Rendered in 3D'} open={isImageRenderDialogOpen} closeDialog={handleDialogClose} >
-            {loading && <CustomSpinnerLoader />}
             <Engine antialias adaptToDeviceRatio canvasId="babylonJS">
                 <Scene>
                     <arcRotateCamera
