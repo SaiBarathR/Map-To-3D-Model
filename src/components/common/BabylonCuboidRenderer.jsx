@@ -1,5 +1,5 @@
 import { Engine, Scene } from "react-babylonjs";
-import { Vector3, Color3 } from "@babylonjs/core";
+import { Vector3 } from "@babylonjs/core";
 import { SpinningBox } from "./SpinningBox";
 import { useState } from "react";
 import CustomDialog from "./CustomDialog";
