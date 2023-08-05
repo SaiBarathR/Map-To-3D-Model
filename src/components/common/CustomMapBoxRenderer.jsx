@@ -72,7 +72,6 @@ export default function CustomMapBoxRenderer({ renderImage }) {
     }
 
     return (
-
         <div ref={mapContainer} className="map-container">
             <CustomMapBoxToolbar />
         </div>
