@@ -52,7 +52,7 @@ export default function CustomMapBoxRenderer({ renderImage }) {
             const coordinates = [lng, lat]
             try {
                 //mapbox api to get static image of map with selected coordinates and zoom level
-                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/400x400?access_token=${mapboxgl.accessToken}`;
+                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}`;
                 //returning image url to parent component to create a model
                 renderImage(imageUrl)
             } catch (error) {

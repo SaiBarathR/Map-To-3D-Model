@@ -17,7 +17,7 @@ export default function CustomDialog({ open, closeDialog, title, children }) {
     };
 
     return (
-        <Dialog open={open} TransitionComponent={Transition} onClose={handleClose} maxWidth='lg' fullWidth className='custom-dialog'>
+        <Dialog open={open} TransitionComponent={Transition} onClose={handleClose} maxWidth='xl' fullWidth className='custom-dialog'>
             <DialogTitle sx={{justifyContent:"space-between",display:"flex"}}>
                 {title}
                 <IconButton aria-label="close" onClick={handleClose} sx={{maxWidth:"35px",maxHeight:"35px"}}>
