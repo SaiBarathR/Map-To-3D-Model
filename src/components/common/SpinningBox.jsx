@@ -29,6 +29,7 @@ export function SpinningBox({ imageSource, name, position, handleLoading }) {
             image.onload = null;
             image.onerror = null;
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [imageSource]);
 
     //return box element with image texture applied
