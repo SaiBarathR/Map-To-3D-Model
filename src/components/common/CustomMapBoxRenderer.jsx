@@ -2,6 +2,7 @@ import mapboxgl from 'mapbox-gl';
 import { useEffect, useRef, useState } from 'react';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { ReactComponent as PrintIcon } from "../../icons/print.svg";
+import { Tooltip } from '@mui/material';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpYmFyYXRociIsImEiOiJjbGt2OW92b2kwM2Y0M2pueGYwazVjazM3In0.lR7Be6FsuuWiomVLWaNP0Q';
 
@@ -48,7 +49,7 @@ export default function CustomMapBoxRenderer({ renderImage }) {
     //Top right toolbar
     function CustomMapBoxToolbar() {
 
-        const handleClickPrint = () => {            
+        const handleClickPrint = () => {
             const coordinates = [lng, lat]
             try {
                 //mapbox api to get static image of map with selected coordinates and zoom level
@@ -63,7 +64,9 @@ export default function CustomMapBoxRenderer({ renderImage }) {
 
         return (
             <div className="mapbox-toolbar">
-                <button className="mapbox-toolbar-button" onClick={handleClickPrint}> <PrintIcon className='mapbox-toolbar-button-print-icon' /></button>
+                <Tooltip title='Render current view as 3D model' >
+                    <button className="mapbox-toolbar-button" onClick={handleClickPrint}> <PrintIcon className='mapbox-toolbar-button-print-icon' /></button>
+                </Tooltip>
             </div>
         )
     }
