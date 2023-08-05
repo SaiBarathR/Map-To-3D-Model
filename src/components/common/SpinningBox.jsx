@@ -1,7 +1,7 @@
 import { Vector4 } from "@babylonjs/core";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
-export function SpinningBox(props) {
+export function SpinningBox({ imageSource, name, position, handleLoading }) {
 
     //ref to box element to be used in parent component
     const boxRef = useRef(null);
@@ -13,21 +13,39 @@ export function SpinningBox(props) {
         return faceUV;
     }, []);
 
+    useEffect(() => {
+        // create an image object to check when the texture is loaded
+        const image = new Image();
+
+        // set up the event listeners to mark the texture as loaded
+        image.onload = () => handleLoading(false);
+        image.onerror = () => handleLoading(false);
+
+        // start loading the image
+        image.src = imageSource;
+
+        // clean up the event listeners when the component unmounts
+        return () => {
+            image.onload = null;
+            image.onerror = null;
+        };
+    }, [imageSource]);
+
     //return box element with image texture applied
     return (
         <box
-            name={props.name}
+            name={name}
             ref={boxRef}
             size={2}
-            position={props.position}
+            position={position}
             height={1}
             width={0.75}
             depth={0.25}
-            faceUV={faceUV}
+            faceUV={faceUV}            
             wrap
         >
-            <standardMaterial name={props.name}>
-                <texture url={props.imageSource} assignTo={"diffuseTexture"} />
+            <standardMaterial name={name}>
+                <texture url={imageSource} assignTo={"diffuseTexture"} />
             </standardMaterial>
         </box>
     );
