@@ -8,6 +8,29 @@
   pointer-events: none;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar-track {
+  background-color: rgba(237, 240, 242, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(190, 190, 190);
+  border-radius: 5px;
+}
+
+* {
+  scrollbar-color: rgb(190, 190, 190) rgba(240, 240, 240, 0.5);
+  scrollbar-width: 6px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
