@@ -39,9 +39,9 @@ export function SpinningBox({ imageSource, name, position, handleLoading }) {
             ref={boxRef}
             size={2}
             position={position}
-            height={1}
-            width={0.75}
-            depth={0.25}
+            height={1.25}
+            width={1}
+            depth={0.35}
             faceUV={faceUV}            
             wrap
         >
