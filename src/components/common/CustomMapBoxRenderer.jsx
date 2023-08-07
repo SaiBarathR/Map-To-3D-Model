@@ -14,7 +14,7 @@ export default function CustomMapBoxRenderer({ renderImage }) {
     const [lng, setLng] = useState(82.7553);
     const [lat, setLat] = useState(21.4542);
     // marker center coordinates
-    const [markerPosition, setMarkerPosition] = useState();
+    const [markerPosition, setMarkerPosition] = useState([]);
     const [zoom, setZoom] = useState(4.22);
 
     useEffect(() => {
@@ -59,8 +59,9 @@ export default function CustomMapBoxRenderer({ renderImage }) {
         const handleClickPrint = () => {
             const coordinates = [lng, lat]
             try {
-                //mapbox api to get static image of map with selected coordinates and zoom level
-                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l-l+000(${markerPosition})/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}`;
+                //mapbox api to get static image of map with selected marker coordinates and zoom level
+                let imageUrl = markerPosition.length > 0 ? `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l-l+000(${markerPosition})/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}` :
+                    `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}`
                 //returning image url to parent component to create a model
                 renderImage(imageUrl)
             } catch (error) {
