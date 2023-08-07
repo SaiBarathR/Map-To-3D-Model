@@ -13,6 +13,8 @@ export default function CustomMapBoxRenderer({ renderImage }) {
     //initializing map with longitude, latitude and zoom level
     const [lng, setLng] = useState(82.7553);
     const [lat, setLat] = useState(21.4542);
+    // marker center coordinates
+    const [markerPosition, setMarkerPosition] = useState();
     const [zoom, setZoom] = useState(4.22);
 
     useEffect(() => {
@@ -43,6 +45,11 @@ export default function CustomMapBoxRenderer({ renderImage }) {
         //to add navigation controls like zoom in and zoom out 
         map.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
+        //to get the coordinates of selected place
+        geocoder.on('result', (e) => {
+            setMarkerPosition(e.result.center)
+        })
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -53,7 +60,7 @@ export default function CustomMapBoxRenderer({ renderImage }) {
             const coordinates = [lng, lat]
             try {
                 //mapbox api to get static image of map with selected coordinates and zoom level
-                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}`;
+                const imageUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l-l+000(${markerPosition})/${coordinates},${zoom},0/1200x1200?access_token=${mapboxgl.accessToken}`;
                 //returning image url to parent component to create a model
                 renderImage(imageUrl)
             } catch (error) {
