@@ -121,11 +121,20 @@
   z-index: 12000;
 }
 
-.custom-dialog .MuiDialog-paper,canvas {
+.custom-dialog .MuiDialog-paper,
+canvas {
   border-radius: 20px;
   background: #efe1e1;
 }
-.mapbox-toolbar-button-print-icon{
+
+.mapbox-toolbar-button-print-icon {
   min-width: 25px;
   min-height: 15px;
+}
+
+@media only screen and (max-height: 750px) {
+  .custom-dialog .MuiDialog-paper {
+    max-height: 600px !important;
+    max-width: 600px !important;
+  }
 }
