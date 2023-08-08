@@ -1,3 +1,25 @@
+# Components Preview
+
+**MapBox View**
+
+![image](https://github.com/SaiBarathR/image-to-render-model/assets/58382813/9f05ef74-7856-46c4-9f0c-7e402f3d266f)
+
+
+**MapBox GeoCoder View**
+
+![image](https://github.com/SaiBarathR/image-to-render-model/assets/58382813/eed77b30-6da0-4119-ad86-35ed1b78ee15)
+
+
+**Marker View**
+
+![image](https://github.com/SaiBarathR/image-to-render-model/assets/58382813/dcdf4558-69c7-429c-a3dd-533c5fef39f2)
+
+
+**3D Rendered Model as Cuboid**
+
+![image](https://github.com/SaiBarathR/image-to-render-model/assets/58382813/c48fe6d5-8b0f-4b6f-a448-40d61d1f56b7)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
