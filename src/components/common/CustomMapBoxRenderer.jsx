@@ -4,7 +4,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { ReactComponent as PrintIcon } from "../../icons/print.svg";
 import { Tooltip } from '@mui/material';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpYmFyYXRociIsImEiOiJjbGt2OW92b2kwM2Y0M2pueGYwazVjazM3In0.lR7Be6FsuuWiomVLWaNP0Q';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 export default function CustomMapBoxRenderer({ renderImage }) {
     //to get the reference of map container
